@@ -2,7 +2,7 @@
 
 @font-face { font-family: "Geist Mono"; src: url("/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
 
-/* Meridian design system, chat surface, light appearance. Values lifted from the published token sheet. */
+/* Design tokens, light appearance. */
 :root {
   --font-sans: var(--font-onest), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: var(--font-onest), var(--font-sans);
@@ -16,17 +16,13 @@
   --border: oklch(90.4% 0 0);
   --accent: oklch(89% 0.220298 144.5);
   --accent-foreground: oklch(28.9% 0 0);
-  --success: oklch(95.1% 0.070181 146.6);
   --error: oklch(88.01% 0.055 1.24);
-  --warning: oklch(95.68% 0.046 89.57);
-  --upgrade: oklch(91.8% 0.045311 298);
 
   --up: oklch(59% 0.179916 143.5);
   --down: oklch(63.7% 0.237 25.331);
 
   --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
-  --shadow-1: 0 1px 2px oklch(15% 0 0 / 0.06);
 }
 
 @theme inline {
@@ -41,10 +37,7 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-success: var(--success);
   --color-error: var(--error);
-  --color-warning: var(--warning);
-  --color-upgrade: var(--upgrade);
   --color-up: var(--up);
   --color-down: var(--down);
   --radius-md: var(--radius);
@@ -65,7 +58,7 @@ body {
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em; }
 code, pre, .tabular { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
-/* Mono label. Plain everywhere except panel titles, which carry the design system's "// " mark. */
+/* Mono label. Plain everywhere except panel titles, which carry a "// " mark. */
 .eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; line-height: 1rem; letter-spacing: 0.02em; color: var(--muted-foreground); text-transform: uppercase; white-space: nowrap; }
 .panel-title { font-family: var(--font-mono); font-size: 0.6875rem; line-height: 1rem; letter-spacing: 0.02em; color: var(--muted-foreground); text-transform: uppercase; white-space: nowrap; }
 .panel-title::before { content: "// "; }
@@ -79,7 +72,7 @@ code, pre, .tabular { font-family: var(--font-mono); font-variant-numeric: tabul
 .seg > button:hover { color: var(--foreground); }
 .seg > .on { background: var(--foreground); color: var(--background); }
 
-/* Dark appearance, Meridian chat surface. Default for the app; toggle in the top bar. */
+/* Dark appearance. Default for the app; toggle in the top bar. */
 [data-appearance="dark"] {
   --background: oklch(29.15% 0.0034 228.9);
   --card: oklch(33% 0.004 222);
@@ -89,50 +82,10 @@ code, pre, .tabular { font-family: var(--font-mono); font-variant-numeric: tabul
   --border: oklch(42.06% 0.0055 214.36 / 0.8);
   --accent: #6CFF75;
   --accent-foreground: oklch(23.7% 0.0059 236.8);
-  --success: oklch(48.2% 0.14 143.8);
   --error: oklch(45% 0.16 25);
-  --warning: oklch(60% 0.12 90);
   --up: oklch(80% 0.2 144);
   --down: oklch(70% 0.2 25);
 }
-
-/* Theme variants, from the Meridian token sheet. Sections alternate between them. */
-[data-theme="gray"] {
-  --background: oklch(97% 0 0);
-  --card: #fff;
-  --muted: oklch(93.1% 0 0);
-  --border: oklch(89.2% 0 0);
-}
-[data-theme="green"] {
-  --background: oklch(95.8% 0.078 145);
-  --card: #fff;
-  --muted: oklch(93.2% 0.125 144.5);
-  --border: oklch(89.4% 0.182 143);
-  --muted-foreground: oklch(38% 0.06 145);
-}
-[data-theme="inverted"] {
-  --background: oklch(23.7% 0.0059 236.8);
-  --card: oklch(28.9% 0 0);
-  --foreground: #fff;
-  --muted: oklch(34.3% 0.0011 64);
-  --muted-foreground: oklch(79.8% 0 0);
-  --border: oklch(41.5% 0.001 62.2);
-  --accent: #6CFF75;
-  --accent-foreground: oklch(23.7% 0.0059 236.8);
-  color-scheme: dark;
-}
-
-/* Dot grid texture, the design system's substitute for shadows. */
-.texture-dots {
-  background-image: radial-gradient(var(--border) 1px, transparent 1px);
-  background-size: 24px 24px;
-  background-position: center;
-  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-}
-
-/* One word gets the accent, per surface. */
-.highlight { background: var(--accent); color: var(--accent-foreground); padding: 0 0.25em; }
 
 input[type="range"] { height: 2px; }
 ::-webkit-scrollbar { width: 8px; height: 8px; }
