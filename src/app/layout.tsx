@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-ds="chat" data-appearance="dark" className={onest.variable}>
+    <html lang="en" data-appearance="dark" className={onest.variable}>
       <body className="min-h-screen">{children}</body>
     </html>
   );
